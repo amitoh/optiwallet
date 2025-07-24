@@ -30,4 +30,4 @@ export enum CreditCardIssuer {
 
 }
 
-export const DEFAULT_CACHE_TTL = 60 * 60 * 24; // 24 hours in seconds
+export const DEFAULT_CACHE_TTL = 1000; // MS
