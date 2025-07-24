@@ -1,0 +1,93 @@
+{
+  "id": "97cd070c-3e4c-4390-b664-40ce893723d6",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.creditCards": {
+      "name": "creditCards",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "issuer": {
+          "name": "issuer",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "network": {
+          "name": "network",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "minimum_income": {
+          "name": "minimum_income",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "minimum_credit_score": {
+          "name": "minimum_credit_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "network_index": {
+          "name": "network_index",
+          "columns": [
+            {
+              "expression": "network",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "issuer_check": {
+          "name": "issuer_check",
+          "value": "issuer IN ('scotiabank','bmo','td','rbc','cibc','national_bank','mbna','desjardins','american_express','capital_one','brim','rogers','tangerine','wealthsimple','simplii','pc_financial','neo','vancity','canadian_tire','walmart','home_trust','koho')"
+        },
+        "network_check": {
+          "name": "network_check",
+          "value": "network IN ('visa','mastercard','american_express')"
+        }
+      },
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
