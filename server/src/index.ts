@@ -2,9 +2,9 @@ import swagger from "@elysiajs/swagger";
 import { Elysia } from "elysia";
 import { helmet } from "elysia-helmet";
 import { creditCardsRoutes } from "./routes/credit-cards.route";
+import { logger } from "@bogeychan/elysia-logger";
 
-const app = new Elysia().use(helmet());
-
+const app = new Elysia().use(helmet()).use(logger());
 if (process.env.NODE_ENV === "development") {
   app.use(swagger());
 }
